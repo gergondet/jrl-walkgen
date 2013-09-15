@@ -1152,6 +1152,14 @@ namespace PatternGeneratorJRL {
       }
     else if (ZMPTrajAlgo=="Herdt")
       {
+    /*FIXME Dirty dirt hack */
+    delete m_ZMPVRQP;
+    m_ZMPVRQP = new ZMPVelocityReferencedQP(this,"",m_HumanoidDynamicRobot);
+    m_ZMPVRQP->SetSamplingPeriod(m_PC->SamplingPeriod());
+    m_ZMPVRQP->SetTimeWindowPreviewControl(m_PC->PreviewControlTime());
+    m_ZMPVRQP->SetSamplingPeriod(m_PC->SamplingPeriod());
+    m_ZMPVRQP->SetTimeWindowPreviewControl(m_PC->PreviewControlTime());
+    /*FIXME end of dirty dirty hack */
 	m_AlgorithmforZMPCOM = ZMPCOM_HERDT_2010;
 	m_GlobalStrategyManager = m_CoMAndFootOnlyStrategy;
 	m_CoMAndFootOnlyStrategy->SetTheLimitOfTheBuffer(0);
